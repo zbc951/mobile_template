@@ -1,0 +1,146 @@
+.dialog {
+  height: 100vh;
+
+  .title {
+    height: 45px;
+    border-radius: 0;
+
+    .logo {
+      width: 58px;
+      height: 26px;
+      background: url(/tb-mobile/assets/img/logo.svg) no-repeat center center;
+      left: 14px;
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 37px 0;
+    font-size: 14px;
+
+    input,
+    button {
+      width: 80.33vw;
+      height: 9.6vw;
+    }
+
+    button {
+      font-size: 16px;
+    }
+
+    label {
+      position: relative;
+      margin: 0 0 5.06vw;
+
+      button {
+        position: absolute;
+        top: calc((9.6vw - 7vw) / 2);
+        right: 10px;
+        width: 23.2vw;
+        height: 7vw;
+        font-size: 14px;
+      }
+
+      .err {
+        position: absolute;
+        bottom: -18px;
+        left: 0;
+      }
+
+      .phoneConfirm {
+        width: 19.2vw;
+      }
+
+      .confirm {
+        position: absolute;
+        top: calc((9.6vw - 13px) / 2);
+        right: 10px;
+        font-size: 14px;
+        letter-spacing: 1px;
+        color: #00de3f;
+      }
+
+      img {
+        position: absolute;
+        top: calc((9.6vw - 4.26vw) / 2);
+        right: 10px;
+        width: 4.26vw;
+        height: 4.26vw;
+      }
+    }
+
+    .isCheck {
+      display: flex;
+      width: 77.33vw;
+      margin: 0 0 9vh;
+
+      input {
+        appearance: auto;
+        width: 4.8vw;
+        height: 4.8vw;
+        margin: 0 10px 0 0;
+      }
+
+      p {
+        color: #d9b48a;
+      }
+    }
+  }
+
+  .success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .icon {
+      width: 12.8vw;
+      height: 11.2vw;
+      margin: 5.87vw 0 4.53vw;
+      background: url("/tb-mobile/assets/img/celebrate.svg") no-repeat center
+        center;
+    }
+
+    p {
+      font-size: 16px;
+      letter-spacing: 1px;
+      color: #595757;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: space-between;
+      width: 73.6vw;
+      margin: 9.6vw 0 0;
+
+      button {
+        width: 34.13vw;
+        height: 11.2vw;
+        font-size: 14px;
+        letter-spacing: 1px;
+        color: #ffffff;
+      }
+
+      .blue_btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(#bbc8e6 0%, #6d7fbe 50%, #99a6f1 100%);
+
+        &:active {
+          background: linear-gradient(
+            to top,
+            #bbc8e6 0%,
+            #6d7fbe 50%,
+            #99a6f1 100%
+          );
+        }
+
+        // border: 1px solid #cca172;
+        border-radius: 3px;
+        color: #fff;
+      }
+    }
+  }
+}

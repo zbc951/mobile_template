@@ -1,0 +1,23 @@
+.main {
+  height: calc(100vh - 102px);
+  width: 100vw;
+  overflow: scroll;
+  padding: 20px 15px
+}
+
+.title {
+  font-size: 17px;
+  line-height: 27px;
+  color: #000000;
+}
+
+.date {
+  font-size: 14px;
+  color: #999999;
+}
+
+.msg {
+  margin-top: 19px;
+  font-size: 17px;
+  color: #666666;
+}

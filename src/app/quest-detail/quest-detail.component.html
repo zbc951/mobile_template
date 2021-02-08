@@ -1,0 +1,68 @@
+<div class="quest-wrap">
+  <div class="quest-cover">
+    <img [src]="item.image" />
+  </div>
+  <div class="quest-header panel-style">
+    <ul>
+      <li class="sub-title">{{ "QUEST_CENTER.CONDITION" | translate }}</li>
+      <li class="quest-condition">
+        <div>{{ "QUEST_CENTER.DATETIME" | translate }}</div>
+        <div>
+          <ng-container *ngIf="item.startAt || item.endAt; else nolimit">
+            {{ item.startAt }} ~ {{ item.endAt }}
+          </ng-container>
+          <ng-template #nolimit>
+            {{ "MEMBER_QUEST.NO_LIMIT" | translate }}
+          </ng-template>
+        </div>
+      </li>
+      <li class="quest-condition" *ngIf="item.points">
+        <div>{{ "MEMBER_QUEST.REWARD" | translate }}</div>
+        <div>{{ item.points }}</div>
+      </li>
+      <!-- <li class="quest-condition">
+        <div>領取次數</div>
+        <div>5</div>
+      </li> -->
+
+      <ng-container *ngIf="item.type == Activity_type.percent">
+        <li class="quest-condition">
+          <div>{{ "QUEST_CENTER.percentMaxPoints" | translate }}</div>
+          <div>{{ item.percentMaxPoints | floatDisplay }}</div>
+        </li>
+        <li class="quest-condition">
+          <div>{{ "QUEST_CENTER.percentPoints" | translate }}</div>
+          <div>{{ item.percentPoints | floatDisplay }}</div>
+        </li>
+        <li class="quest-condition">
+          <div>{{ "QUEST_CENTER.percentWater" | translate }}</div>
+          <div>{{ item.percentWater | floatDisplay }}</div>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+  <div class="quest-info panel-style">
+    <ul>
+      <li class="sub-title">{{ "QUEST_CENTER.INFOMATION" | translate }}</li>
+      <li>
+        <div
+          class="detail-info"
+          [innerHTML]="item.information | safeHtml"
+        ></div>
+      </li>
+    </ul>
+    <div class="quest-footer">
+      <button
+        *ngIf="item.canBuy"
+        class="btn-buy orange_btn"
+        (click)="buy(item)"
+        [disabled]="item.canBuy !== 'yes'"
+      >
+        <ng-container *ngIf="item.type == Activity_type.fixed">
+          ${{ item.price }}</ng-container
+        >
+        {{ "QUEST_CENTER.BTN-BUY" | translate }}
+      </button>
+    </div>
+  </div>
+</div>

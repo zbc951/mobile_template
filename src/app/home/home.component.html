@@ -1,0 +1,31 @@
+<app-ad></app-ad>
+<app-announcement></app-announcement>
+<app-member-board></app-member-board>
+<div class="home-center">
+  <ul class="type flex">
+    <li
+      *ngFor="let item of types"
+      [class]="item.type"
+      class="gray-btn-frame"
+      (click)="typeChange(item.type)"
+    >
+      <div class="g-12">
+        <i [ngClass]="{ active: item.type === curType }"></i>
+        <p [ngClass]="{ active: item.type === curType }">{{ item.name }}</p>
+      </div>
+    </li>
+  </ul>
+  <ul class="games">
+    <li
+      *ngFor="let item of showItems"
+      class="gray-btn-frame"
+      (click)="click(item)"
+    >
+      <div
+        class="g-12 gray-btn-frame"
+        [style.background-image]="'url(' + item.imageUrl + ')'"
+      ></div>
+      <p>{{ item.name }}</p>
+    </li>
+  </ul>
+</div>

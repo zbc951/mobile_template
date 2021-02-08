@@ -1,0 +1,50 @@
+.menu {
+  span {
+    display: inline-block;
+    height: 40px;
+    width: 50vw;
+    line-height: 40px;
+    text-align: center;
+    font-size: 14px;
+
+    &.active {
+      border-bottom: solid #e11515 2px;
+    }
+  }
+}
+
+.main {
+  overflow: scroll;
+  width: 100vw;
+  height: calc(100vh - 132px);
+  padding: 10px 0;
+  background: #f8f8f8;
+}
+
+li {
+  @extend .panel-style;
+  width: 92vw;
+  margin: 10px auto;
+  border-radius: 5px;
+
+  p {
+    height: 45px;
+    line-height: 45px;
+    padding: 0 16px;
+    display: flex;
+    justify-content: space-between;
+
+    &:first-child {
+      border-bottom: solid #e11515 1px;
+    }
+
+    span:first-child {
+      color: #4d4d4d;
+    }
+  }
+}
+
+.no-data {
+  text-align: center;
+  margin-top: 15px;
+}

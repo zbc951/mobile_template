@@ -1,0 +1,28 @@
+.pagination-out {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 93%;
+
+  li {
+    width: 26px;
+    height: 2px;
+    margin: 0 5px 0 0;
+    background: #fff;
+
+    &:last-child {
+      margin: 0;
+    }
+
+    &.cur {
+      background: #e10012;
+    }
+  }
+}

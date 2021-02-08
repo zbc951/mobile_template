@@ -1,0 +1,97 @@
+<div class="mask">
+  <div class="dialog">
+    <div class="title">
+      <p>{{ data.pkey | uppercase }}</p>
+      <i (click)="close()"></i>
+    </div>
+    <form [formGroup]="transferWalletForm">
+      <div class="is_coupon form-row" *ngIf="currentWallet.isCoupon">
+        <p class="item">
+          {{ "TRANSFERPOPUP.COUPON" | translate }}
+        </p>
+        <div class="item_text">
+          {{ currentWallet.amount }}
+        </div>
+      </div>
+      <div class="is_coupon form-row" *ngIf="!currentWallet.isCoupon">
+        <p class="item">
+          {{ "TRANSFERPOPUP.CENTER" | translate }}
+        </p>
+        <div class="item_text">
+          <!-- {{ currentWallet.amount }} -->
+          ${{ money }}
+        </div>
+      </div>
+      <!-- <div class="form-row">
+        <p class="item">
+          {{ "TRANSFERPOPUP.CURRENT" | translate }}
+        </p>
+        <div class="item_text">
+          {{ currentWallet.name }}
+        </div>
+      </div> -->
+      <div class="is_coupon form-row" *ngIf="currentWallet.isCoupon">
+        <p class="item">
+          {{ "TRANSFERPOPUP.COUPON-NAME" | translate }}
+        </p>
+        <div class="item_text" style="color: #f15a24">
+          {{ currentWallet.name }}
+          <p class="time">2020/08/31 23:59:00</p>
+        </div>
+      </div>
+      <div class="form-row">
+        <p class="item">
+          {{ "TRANSFERPOPUP.SELECT-WALLET" | translate }}
+        </p>
+        <select
+          class="wallet_select"
+          name=""
+          id=""
+          formControlName="walletType"
+        >
+          <option [value]="null">
+            {{ "TRANSFERPOPUP.CENTER" | translate }}
+          </option>
+          <option
+            *ngFor="let item of getWalletType; let i = inedx"
+            value="{{ item.id }}"
+            [selected]="item.isCoupon === false"
+          >
+            {{ item.name }} ({{ item.currentPoints }})
+          </option>
+        </select>
+      </div>
+      <!-- <div class="amount form-row">
+        <p class="item">
+          {{ "TRANSFERPOPUP.TRANSFER-AMOUNT" | translate }}
+        </p>
+        <input
+          formControlName="amount"
+          type="number"
+          class="wallet_select"
+          min="1"
+          required
+        />
+      </div>
+      <div class="transferConfirm form-row">
+        <button
+          class="confirm_btn orange_btn"
+          [disabled]="
+            transferWalletForm.invalid ||
+            transferWalletForm.get('amount').value == 0
+          "
+        >
+          {{ "TRANSFERPOPUP.CONFIRM" | translate }}
+        </button>
+      </div> -->
+      <!-- <div class="platformAmount form-row">
+        <p class="item">{{ data.pkey | uppercase }}平台</p>
+        {{ platformMoney }}
+      </div> -->
+    </form>
+    <hr />
+    <button class="goGame orange_btn" (click)="enter()">
+      {{ "TRANSFERPOPUP.GOGAME" | translate }}
+    </button>
+  </div>
+</div>

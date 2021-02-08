@@ -1,0 +1,199 @@
+.home-center {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15px 0;
+  margin: 8px 0 0;
+}
+
+.type {
+  height: 73.7wv;
+  flex-direction: column;
+  // margin: 0 4px 0 0;
+  overflow-y: scroll;
+
+  li {
+    width: 25.6vw;
+    height: 11.47vw;
+    margin: 0 0 3px;
+    order: 10;
+
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 24vw;
+      height: 9.87vw;
+      padding: 0 16px 0 11px;
+      border: 1px solid #e8e8e8;
+      border-radius: 3px;
+
+      i {
+        width: 6.4vw;
+        height: 6.4vw;
+      }
+
+      p {
+        font-size: 12px;
+        letter-spacing: 0px;
+        color: #b3b3b3;
+
+        &.active {
+          color: #ad8047;
+        }
+      }
+    }
+
+    &.sport {
+      order: 4;
+
+      i {
+        background: url("/tb-mobile/assets/img/sport.svg") no-repeat center
+          center;
+
+        &.active {
+          background: url("/tb-mobile/assets/img/sport2.svg") no-repeat center
+            center;
+        }
+      }
+    }
+
+    &.live {
+      order: 3;
+
+      i {
+        background: url("/tb-mobile/assets/img/live.svg") no-repeat center
+          center;
+
+        &.active {
+          background: url("/tb-mobile/assets/img/live2.svg") no-repeat center
+            center;
+        }
+      }
+    }
+
+    &.slot {
+      order: 1;
+
+      div {
+        padding: 0 9px 0 6px;
+      }
+
+      i {
+        width: 30px;
+        height: 16px;
+        background: url("/tb-mobile/assets/img/slot.svg") no-repeat center
+          center;
+
+        &.active {
+          background: url("/tb-mobile/assets/img/slot2.svg") no-repeat center
+            center;
+        }
+      }
+    }
+
+    &.lottery {
+      order: 5;
+
+      i {
+        background: url("/tb-mobile/assets/img/lotto.svg") no-repeat center
+          center;
+
+        &.active {
+          background: url("/tb-mobile/assets/img/lotto2.svg") no-repeat center
+            center;
+        }
+      }
+    }
+
+    &.board {
+      order: 6;
+
+      i {
+        background: url("/tb-mobile/assets/img/board.svg") no-repeat center
+          center;
+
+        &.active {
+          background: url("/tb-mobile/assets/img/board2.svg") no-repeat center
+            center;
+        }
+      }
+    }
+
+    &.fishing {
+      order: 2;
+
+      div {
+        padding: 0 9px 0 6px;
+      }
+
+      i {
+        width: 8vw;
+        height: 4.27vw;
+        background: url("/tb-mobile/assets/img/fish.svg") no-repeat center
+          center;
+
+        &.active {
+          background: url("/tb-mobile/assets/img/fish2.svg") no-repeat center
+            center;
+        }
+      }
+    }
+  }
+}
+
+.games {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  width: 62.4vw;
+  height: 73.7vw;
+  overflow-y: scroll;
+
+  li {
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 30.4vw;
+    height: 23.2vw;
+    padding: 3px 0 0;
+    margin: 0 4px 5px 0;
+
+    &:nth-child(2n) {
+      margin: 0 0 5px 0;
+    }
+
+    div {
+      width: 28.27vw;
+      height: 17.4vw;
+      border-radius: 5px 5px 2px 2px;
+      background-position: center center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    p {
+      font-size: 12px;
+      letter-spacing: 0px;
+      color: #848484;
+    }
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  /* For mobile phones: */
+
+  .type {
+    li {
+      div {
+        i {
+          outline: 1px solid pink;
+          display: none;
+        }
+
+        p {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

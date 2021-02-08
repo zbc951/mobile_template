@@ -1,0 +1,144 @@
+<div
+  style="
+    background-color: #f8f8f8;
+    min-height: calc(100vh - 45px - 47px);
+    padding: 0 0 10px;
+  "
+>
+  <div class="white-bg">
+    <div class="board g-13">
+      <div class="content">
+        <div>
+          <div class="account">
+            {{ mine?.name }}
+          </div>
+          <div class="text">
+            {{ "VIP.current_amount" | translate }}:
+            <p>${{ mine2?.total_deposit | number: "1.0-2" }}</p>
+            (101/500)
+          </div>
+          <div class="text">
+            {{ "VIP.current_point" | translate }}:
+            <p>${{ mine2?.total_bet | number: "1.0-2" }}</p>
+            (101/500)
+          </div>
+        </div>
+        <div class="medal">
+          <p>{{ mine?.name }}</p>
+        </div>
+      </div>
+      <div class="experience-bar">
+        <div class="level">
+          <p class="cur">
+            {{ "VIP.DETAIL.LEVEL.1" | translate }}
+          </p>
+          <p>
+            {{ "VIP.DETAIL.LEVEL.2" | translate }}
+          </p>
+        </div>
+        <div class="bar">
+          <div class="cur">
+            <div class="dialog">
+              <p>
+                50%
+                <i class="arrow"></i>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="btn-group">
+        <button class="white_orange_btn" (click)="openDetail()">
+          {{ "VIP.chk_amount" | translate }}
+        </button>
+        <button class="orange_btn">
+          {{ "VIP.apply_upgrade" | translate }}
+        </button>
+      </div>
+    </div>
+    <div class="level-box">
+      <div>
+        <hr />
+      </div>
+      <ul>
+        <li
+          *ngFor="let item of levels; let i = index"
+          [ngClass]="{ cur: i === curPage }"
+          (click)="levelChange(i)"
+        >
+          {{ item }}
+        </li>
+        <!-- <li>{{ "VIP.DETAIL.LEVEL.0" | translate }}</li>
+        <li>{{ "VIP.DETAIL.LEVEL.1" | translate }}</li>
+        <li>{{ "VIP.DETAIL.LEVEL.2" | translate }}</li>
+        <li>{{ "VIP.DETAIL.LEVEL.3" | translate }}</li>
+        <li>{{ "VIP.DETAIL.LEVEL.4" | translate }}</li>
+        <li>{{ "VIP.DETAIL.LEVEL.5" | translate }}</li> -->
+      </ul>
+    </div>
+    <div class="cards">
+      <i></i>
+      <div
+        class="content"
+        (touchstart)="touchS($event)"
+        (touchend)="touchE($event)"
+      >
+        <ul #partnersList>
+          <li
+            #list
+            *ngFor="let item of showItems"
+            [ngClass]="{ cur: item.level === curLevel }"
+          >
+            <div class="medal">
+              <p>{{ item.name }}</p>
+            </div>
+            <div class="text">
+              {{ "VIP.deposit" | translate }}
+              <p>{{ item.deposit }}</p>
+            </div>
+            <div class="text">
+              {{ "VIP.serial" | translate }}
+              <p>{{ item.water }}</p>
+            </div>
+            <div class="text">
+              {{ "VIP.stay-three" | translate }}
+              <p>{{ item.three }}</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <i></i>
+    </div>
+  </div>
+  <div class="white-bg enjoy">
+    <div class="enjoy-title">尊龍{{ "VIP.enjoy" | translate }}</div>
+    <ul>
+      <li>
+        {{ "VIP.enjoy-content.limit-deposit-upper" | translate }}
+        <p>5</p>
+      </li>
+      <li>
+        {{ "VIP.enjoy-content.limit-deposit-lower" | translate }}
+        <p>200,000,00</p>
+      </li>
+      <li>
+        {{ "VIP.Upgrade" | translate }}
+        <p>8</p>
+      </li>
+      <li>
+        {{ "VIP.BirthGift" | translate }}
+        <p>0</p>
+      </li>
+      <li>
+        {{ "VIP.enjoy-content.month" | translate }}
+        <p>8</p>
+      </li>
+    </ul>
+  </div>
+  <div class="white-bg detail" routerLink="/{{ AppRoutes.VIP_DETAIL }}">
+    <p>
+      {{ "VIP.DETAIL.TITLE" | translate }}
+      <i></i>
+    </p>
+  </div>
+</div>

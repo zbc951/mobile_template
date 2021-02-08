@@ -1,0 +1,48 @@
+<div style="padding: 0 0 15px">
+  <div class="title" *ngIf="type !== 'withdraw'">
+    {{ "MY-WALLET.update" | translate }}:{{
+      updateTime | date: "yyyy-MM-dd hh:mm:ss"
+    }}
+    <!-- (click)="unmountActivityWallet()" -->
+    <button
+      class="orange_btn"
+      *ngIf="type !== 'transfer'"
+      appThrottle
+      (action)="unmountActivityWallet()"
+      [disabled]="platformWallet.length == 0"
+    >
+      {{ "TRANSFER.RECEIVE" | translate }}
+    </button>
+  </div>
+  <ul [ngClass]="{ isOpen: isOpen }">
+    <li
+      *ngFor="let item of platformWallet; let i = index"
+      class="gray-btn-frame"
+    >
+      <div style="display: flex">
+        {{ item.name }}
+        <div class="icon" *ngIf="item.activityWallet" (click)="showWallet(i)">
+          <div class="dialog" *ngIf="item.isShow">
+            <div class="text">
+              <p *ngIf="item.activityWallet.id !== null">
+                {{ item.activityWallet.name }}
+              </p>
+              <p *ngIf="item.activityWallet.id === null">
+                {{ "MEMBER_NAV.MULTIMONEY" | translate }}
+              </p>
+              <i class="arrow"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="balance">${{ item.balance | floatDisplay }}</p>
+    </li>
+  </ul>
+  <div class="open" *ngIf="platformWallet.length > 12">
+    <div style="display: flex; align-items: center" (click)="open()">
+      {{ "TRANSFER.OPEN" | translate }}
+      <i [ngClass]="{ isOpen: isOpen }"></i>
+    </div>
+  </div>
+</div>
+<app-loading *ngIf="isLoading"></app-loading>
